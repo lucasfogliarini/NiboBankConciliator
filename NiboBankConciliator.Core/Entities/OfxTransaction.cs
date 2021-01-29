@@ -1,14 +1,16 @@
-﻿namespace NiboBankConciliator.Core.Entities
+﻿using System;
+
+namespace NiboBankConciliator.Core.Entities
 {
-    public struct OfxTransaction : IBankTransaction
+    public struct OfxTransaction
     {
-        public string TransType { get; set; }
-        public string TransAmount { get; set; }
-        public string DatePosted { get; set; }
+        public TransType TransType { get; set; }
+        public decimal TransAmount { get; set; }
+        public DateTime DatePosted { get; set; }
         public string Memo { get; set; }
     }
 
-    public enum TransTypes
+    public enum TransType
     {
         Debit, Credit
     }

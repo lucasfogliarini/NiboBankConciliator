@@ -2,7 +2,7 @@
 
 namespace NiboBankConciliator.Core.Entities
 {
-    public class OfxDocument : IBankDocument
+    public class OfxDocument
     {
         public List<OfxTransaction> Transactions { get; set; }
         public string AccountType { get; set; }
