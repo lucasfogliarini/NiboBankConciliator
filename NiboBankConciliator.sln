@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NiboBankConciliator.Tests.Unit", "NiboBankConciliator.Tests.Unit\NiboBankConciliator.Tests.Unit.csproj", "{D724BE66-D486-4709-B3EA-BCE66DF9DBF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NiboBankConciliator.Tests.Unit", "NiboBankConciliator.Tests.Unit\NiboBankConciliator.Tests.Unit.csproj", "{D724BE66-D486-4709-B3EA-BCE66DF9DBF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NiboBankConciliator.Core", "NiboBankConciliator.Core\NiboBankConciliator.Core.csproj", "{950A6B85-ECD2-4D01-9199-68ABCDDE9FBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NiboBankConciliator.Core", "NiboBankConciliator.Core\NiboBankConciliator.Core.csproj", "{950A6B85-ECD2-4D01-9199-68ABCDDE9FBF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B8B9EF6A-3F93-4165-8C12-AE13A4261F61}"
+	ProjectSection(SolutionItems) = preProject
+		OFX\extrato1.ofx = OFX\extrato1.ofx
+		OFX\extrato2.ofx = OFX\extrato2.ofx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

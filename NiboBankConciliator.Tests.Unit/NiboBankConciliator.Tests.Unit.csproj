@@ -18,4 +18,10 @@
     <ProjectReference Include="..\NiboBankConciliator.Core\NiboBankConciliator.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="extrato1.ofx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
