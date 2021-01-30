@@ -1,6 +1,7 @@
 ﻿using NiboBankConciliator.Core.Entities;
 using System.Linq;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace NiboBankConciliator.Core.Services
 {
@@ -11,6 +12,13 @@ namespace NiboBankConciliator.Core.Services
         {
             _bankConciliatorRepository = bankConciliatorRepository;
         }
+
+        public BankAccount GetBankAccount(int bankAccountId)
+        {
+            var bankAccount = _bankConciliatorRepository.Query<BankAccount>().Include(e => e.Transactions).FirstOrDefault(e => e.Id == bankAccountId);
+            return bankAccount;
+        }
+
         public BankAccount Reconcile(IEnumerable<OfxDocument> ofxDocuments)
         {
             var bankTransactions = new List<BankTransaction>();

@@ -5,6 +5,7 @@ using NiboBankConciliator.Core.Entities;
 using System.Collections.Generic;
 using NiboBankConciliator.Core;
 using NSubstitute;
+using System.Linq;
 
 namespace NiboBankConciliator.Tests.Unit
 {
@@ -72,6 +73,19 @@ namespace NiboBankConciliator.Tests.Unit
             //Then
             var expectedTransactionsCount = 2;
             Assert.Equal(expectedTransactionsCount, bankAccount.Transactions.Count);
+        }
+
+        [Fact]
+        public void GetBankAccount_Should_GetBankAccount()
+        {
+            //Given
+            var bankAccountId = 1;
+
+            //When
+            BankAccount bankAccount = _bankReconciliationService.GetBankAccount(bankAccountId);
+
+            //Then
+            Assert.True(true);
         }
     }
 }
