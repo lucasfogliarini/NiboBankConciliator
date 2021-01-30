@@ -5,6 +5,7 @@ namespace NiboBankConciliator.Core.Entities
 {
     public class BankTransaction : IEntity
     {
+        public int Id { get; set; }
         [DisplayName("Type")]
         public TransType TransType { get; set; }
         [DisplayName("Amount")]

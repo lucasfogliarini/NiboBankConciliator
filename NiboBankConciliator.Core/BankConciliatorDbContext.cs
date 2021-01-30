@@ -5,9 +5,9 @@ namespace NiboBankConciliator.Core
 {
     internal class BankConciliatorDbContext : DbContext
     {
-        //public BankConciliatorDbContext(DbContextOptions<BankConciliatorDbContext> options) : base(options)
-        //{
-        //}
+        public BankConciliatorDbContext(DbContextOptions<BankConciliatorDbContext> options) : base(options)
+        {
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

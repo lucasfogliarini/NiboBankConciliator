@@ -11,7 +11,7 @@ namespace NiboBankConciliator.Tests.Integration
     public class BankReconciliationServiceTests
     {
         readonly IBankReconciliationService _bankReconciliationService;
-        public BankReconciliationServiceTests(IBankReconciliationService bankReconciliationService)
+        public BankReconciliationServiceTests()
         {
             var serviceProvider = new ServiceCollection().AddAllServices().BuildServiceProvider();
             _bankReconciliationService = serviceProvider.GetService<IBankReconciliationService>();

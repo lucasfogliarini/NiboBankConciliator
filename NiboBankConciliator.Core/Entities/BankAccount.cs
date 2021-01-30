@@ -5,6 +5,7 @@ namespace NiboBankConciliator.Core.Entities
 {
     public class BankAccount : IEntity
     {
+        public int Id { get; set; }
         [DisplayName("Bank Id")]
         public string BankID { get; set; }
         [DisplayName("Account Id")]

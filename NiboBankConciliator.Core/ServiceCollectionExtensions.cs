@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using NiboBankConciliator.Core.Services;
 
 namespace NiboBankConciliator.Core
@@ -40,7 +41,8 @@ namespace NiboBankConciliator.Core
         /// <param name="serviceCollection"></param>
         public static void AddBankConciliatorRepository(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddDbContext<BankConciliatorDbContext>();
+            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=BankConciliatorDb; Trusted_Connection=True;";
+            serviceCollection.AddDbContext<BankConciliatorDbContext>(options => options.UseSqlServer(connectionString));
             serviceCollection.AddScoped<IBankConciliatorRepository, BankConciliatorRepository>();
         }
     }
