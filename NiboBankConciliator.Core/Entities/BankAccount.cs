@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace NiboBankConciliator.Core.Entities
 {
-    public class BankAccount
+    public class BankAccount : IEntity
     {
         [DisplayName("Bank Id")]
         public string BankID { get; set; }

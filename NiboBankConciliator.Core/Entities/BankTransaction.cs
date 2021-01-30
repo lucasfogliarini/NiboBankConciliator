@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace NiboBankConciliator.Core.Entities
 {
-    public class BankTransaction
+    public class BankTransaction : IEntity
     {
         [DisplayName("Type")]
         public TransType TransType { get; set; }

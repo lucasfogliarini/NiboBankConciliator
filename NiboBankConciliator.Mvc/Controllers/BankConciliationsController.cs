@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NiboBankConciliator.Core;
@@ -39,7 +36,7 @@ namespace NiboBankConciliator.Mvc
                     var ofxDocument = OfxDocumentParser.Parse(stream);
                     ofxDocuments.Add(ofxDocument);
                 }
-                var bankAccount = _bankReconciliationService.Reconcile(ofxDocuments);
+                var bankAccount = _bankReconciliationService.ReconcileAndAddTransactions(ofxDocuments);
 
                 return View(nameof(Reconcile), bankAccount);
             }

@@ -1,25 +1,21 @@
-using System;
-using Xunit;
-using NiboBankConciliator.Core.Services;
 using NiboBankConciliator.Core.Entities;
+using NiboBankConciliator.Core.Services;
+using System;
 using System.Collections.Generic;
-using NiboBankConciliator.Core;
-using NSubstitute;
+using Xunit;
 
-namespace NiboBankConciliator.Tests.Unit
+namespace NiboBankConciliator.Tests.Integration
 {
     public class BankReconciliationServiceTests
     {
         readonly IBankReconciliationService _bankReconciliationService;
-
-        public BankReconciliationServiceTests()
+        public BankReconciliationServiceTests(IBankReconciliationService bankReconciliationService)
         {
-            var bankConciliatorRepository = Substitute.For<IBankConciliatorRepository>();
-            _bankReconciliationService = new BankReconciliationService(bankConciliatorRepository);
+            _bankReconciliationService = bankReconciliationService;
         }
 
         [Fact]
-        public void Reconcile_Should_Reconcile()
+        public void ReconcileAndSave_Should_ReconcileAndSave()
         {
             //Given
             IEnumerable<OfxDocument> ofxDocuments = new List<OfxDocument>()
@@ -67,7 +63,7 @@ namespace NiboBankConciliator.Tests.Unit
 
 
             //When
-            var bankAccount = _bankReconciliationService.Reconcile(ofxDocuments);
+            var bankAccount = _bankReconciliationService.ReconcileAndAddTransactions(ofxDocuments);
 
             //Then
             var expectedTransactionsCount = 2;
