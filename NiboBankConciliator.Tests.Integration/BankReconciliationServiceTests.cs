@@ -1,3 +1,5 @@
+using Microsoft.Extensions.DependencyInjection;
+using NiboBankConciliator.Core;
 using NiboBankConciliator.Core.Entities;
 using NiboBankConciliator.Core.Services;
 using System;
@@ -11,7 +13,8 @@ namespace NiboBankConciliator.Tests.Integration
         readonly IBankReconciliationService _bankReconciliationService;
         public BankReconciliationServiceTests(IBankReconciliationService bankReconciliationService)
         {
-            _bankReconciliationService = bankReconciliationService;
+            var serviceProvider = new ServiceCollection().AddAllServices().BuildServiceProvider();
+            _bankReconciliationService = serviceProvider.GetService<IBankReconciliationService>();
         }
 
         [Fact]
