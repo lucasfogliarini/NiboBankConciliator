@@ -21,6 +21,7 @@ namespace NiboBankConciliator.Mvc
         {
             services.AddControllersWithViews();
             services.AddServices();
+            services.AddRepositories();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

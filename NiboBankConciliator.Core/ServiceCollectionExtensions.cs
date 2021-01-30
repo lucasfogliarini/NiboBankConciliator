@@ -9,5 +9,16 @@ namespace NiboBankConciliator.Core
         {
             serviceCollection.AddTransient<IBankReconciliationService, BankReconciliationService>();
         }
+
+        public static void AddRepositories(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddBankConciliatorRepository();
+        }
+
+        public static void AddBankConciliatorRepository(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddDbContext<BankConciliatorDbContext>();
+            serviceCollection.AddScoped<IBankConciliatorRepository, BankConciliatorRepository>();
+        }
     }
 }

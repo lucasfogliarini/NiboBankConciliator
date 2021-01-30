@@ -15,7 +15,7 @@ namespace NiboBankConciliator.Tests.Integration
         }
 
         [Fact]
-        public void ReconcileAndSave_Should_ReconcileAndSave()
+        public void ReconcileAndAddTransactions_Should_ReconcileAndAddTransactions()
         {
             //Given
             IEnumerable<OfxDocument> ofxDocuments = new List<OfxDocument>()
