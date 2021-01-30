@@ -50,15 +50,16 @@ namespace NiboBankConciliator.Core.Services
         public BankAccount ReconcileAndAddTransactions(IEnumerable<OfxDocument> ofxDocuments)
         {
             var bankAccount = Reconcile(ofxDocuments);
-            bool bankAccountExists = _bankConciliatorRepository.Query<BankAccount>().Any(e => e.BankID == bankAccount.BankID && e.AccountID == bankAccount.AccountID);
-
-            if (bankAccountExists)
+            var bankAccountOnDb = _bankConciliatorRepository.Query<BankAccount>().FirstOrDefault(e => e.BankID == bankAccount.BankID && e.AccountID == bankAccount.AccountID);
+            
+            if (bankAccountOnDb == null)
             {
-                _bankConciliatorRepository.Update(bankAccount);
+                _bankConciliatorRepository.Add(bankAccount);
             }
             else
             {
-                _bankConciliatorRepository.Add(bankAccount);
+                bankAccountOnDb.Transactions = bankAccount.Transactions;
+                _bankConciliatorRepository.Update(bankAccountOnDb);
             }
 
             _bankConciliatorRepository.Commit();

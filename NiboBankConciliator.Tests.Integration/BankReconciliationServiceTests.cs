@@ -64,7 +64,6 @@ namespace NiboBankConciliator.Tests.Integration
                 }
             };
 
-
             //When
             var bankAccount = _bankReconciliationService.ReconcileAndAddTransactions(ofxDocuments);
 
