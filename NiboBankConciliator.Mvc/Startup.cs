@@ -20,7 +20,9 @@ namespace NiboBankConciliator.Mvc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddAllServices();
+
+            var bankConciliatorConnectionString = Configuration["ConnectionStrings:BankConciliator"];
+            services.AddAllServices(bankConciliatorConnectionString);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

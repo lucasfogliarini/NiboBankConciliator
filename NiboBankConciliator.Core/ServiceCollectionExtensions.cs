@@ -10,10 +10,10 @@ namespace NiboBankConciliator.Core
         /// Add all type of services: logical services, repository services, DbContext, ...
         /// </summary>
         /// <param name="serviceCollection"></param>
-        public static IServiceCollection AddAllServices(this IServiceCollection serviceCollection)
+        public static IServiceCollection AddAllServices(this IServiceCollection serviceCollection, string bankConciliatorConnectionString)
         {
             serviceCollection.AddLogicalServices();
-            serviceCollection.AddRepositories();
+            serviceCollection.AddRepositories(bankConciliatorConnectionString);
             return serviceCollection;
         }
 
@@ -30,19 +30,18 @@ namespace NiboBankConciliator.Core
         /// Add repository services.
         /// </summary>
         /// <param name="serviceCollection"></param>
-        public static void AddRepositories(this IServiceCollection serviceCollection)
+        public static void AddRepositories(this IServiceCollection serviceCollection, string bankConciliatorConnectionString)
         {
-            serviceCollection.AddBankConciliatorRepository();
+            serviceCollection.AddBankConciliatorRepository(bankConciliatorConnectionString);
         }
 
         /// <summary>
         /// Add BankConciliatorRepository and BankConciliatorDbContext
         /// </summary>
         /// <param name="serviceCollection"></param>
-        public static void AddBankConciliatorRepository(this IServiceCollection serviceCollection)
+        public static void AddBankConciliatorRepository(this IServiceCollection serviceCollection, string bankConciliatorConnectionString)
         {
-            var connectionString = @"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName=C:\Users\lucas_pedroso1\Desktop\NiboBankConciliator\Data\BankConciliatorDb.mdf";
-            serviceCollection.AddDbContext<BankConciliatorDbContext>(options => options.UseSqlServer(connectionString));
+            serviceCollection.AddDbContext<BankConciliatorDbContext>(options => options.UseSqlServer(bankConciliatorConnectionString));
             serviceCollection.AddScoped<IBankConciliatorRepository, BankConciliatorRepository>();
         }
     }
