@@ -19,6 +19,12 @@ namespace NiboBankConciliator.Core.Services
             return bankAccount;
         }
 
+        public IEnumerable<BankAccount> GetBankAccounts()
+        {
+            var bankAccounts = _bankConciliatorRepository.Query<BankAccount>().ToList();
+            return bankAccounts;
+        }
+
         public BankAccount Reconcile(IEnumerable<OfxDocument> ofxDocuments)
         {
             var bankTransactions = new List<BankTransaction>();

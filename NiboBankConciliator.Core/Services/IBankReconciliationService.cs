@@ -8,5 +8,6 @@ namespace NiboBankConciliator.Core.Services
         BankAccount Reconcile(IEnumerable<OfxDocument> ofxDocuments);
         BankAccount ReconcileAndAddTransactions(IEnumerable<OfxDocument> ofxDocuments);
         BankAccount GetBankAccount(int bankAccountId);
+        IEnumerable<BankAccount> GetBankAccounts();
     }
 }

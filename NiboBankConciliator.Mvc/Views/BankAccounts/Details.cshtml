@@ -4,8 +4,6 @@
     ViewData["Title"] = $"Transactions - {Model.AccountID}";
 }
 
-<h1>Details</h1>
-
 <div>
     <h4>BankAccount</h4>
     <hr />
@@ -36,8 +34,11 @@
         </dd>
     </dl>
 </div>
+<div>
+    <h4>Transactions</h4>
 
-@Html.RenderPartialAsync("_BankTransactions", Model.Transactions);
+    @{ await Html.RenderPartialAsync("_BankTransactions", Model.Transactions); }
+</div>
 
 <div>
     <a asp-action="Index">Back to List</a>
