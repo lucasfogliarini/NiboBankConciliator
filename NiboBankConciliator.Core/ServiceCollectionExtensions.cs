@@ -41,7 +41,7 @@ namespace NiboBankConciliator.Core
         /// <param name="serviceCollection"></param>
         public static void AddBankConciliatorRepository(this IServiceCollection serviceCollection)
         {
-            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=BankConciliatorDb; Trusted_Connection=True;";
+            var connectionString = @"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName=C:\Users\lucas_pedroso1\Desktop\NiboBankConciliator\Data\BankConciliatorDb.mdf";
             serviceCollection.AddDbContext<BankConciliatorDbContext>(options => options.UseSqlServer(connectionString));
             serviceCollection.AddScoped<IBankConciliatorRepository, BankConciliatorRepository>();
         }

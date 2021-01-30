@@ -12,6 +12,7 @@ namespace NiboBankConciliator.Core.Entities
 
     public enum TransType
     {
-        Debit, Credit
+        Debit, 
+        Credit
     }
 }

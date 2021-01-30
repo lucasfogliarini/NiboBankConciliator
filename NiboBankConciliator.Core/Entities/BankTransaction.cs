@@ -14,5 +14,7 @@ namespace NiboBankConciliator.Core.Entities
         public DateTime DatePosted { get; set; }
         [DisplayName("Memo")]
         public string Memo { get; set; }
+        public int BankAccountId { get; set; }
+        public BankAccount BankAccount { get; set; }
     }
 }

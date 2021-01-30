@@ -54,7 +54,7 @@ namespace NiboBankConciliator.Core.Services
 
             if (bankAccountExists)
             {
-                _bankConciliatorRepository.Add(bankAccount);
+                _bankConciliatorRepository.Update(bankAccount);
             }
             else
             {
